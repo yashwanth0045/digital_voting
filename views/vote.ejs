@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vote</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(/images/back.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow:0 1px 5px 1px rgba(0, 0, 0, 0.15); 
+      border-radius: 8px;
+    }
+
+    .body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .profile-container {
+      margin: 10px 20px 10px 20px;
+        background: white;
+      padding-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  min-width: 400px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile-button {
+  margin-left: auto; /* pushes button to the far right */
+  padding: 8px 12px;
+  background-color: #36c94b;
+  color: #f5e50a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile-button:hover{
+  background: #6b9768;
+}
+@media(min-width:800px){
+        .profile-container{
+      min-width: 700px;
+        }
+}
+.box{
+  margin-top: 140px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 100px;
+    font-family: Copperplate Gothic Light;
+}
+    .button-34 {
+       margin-left: auto;
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+}
+    .footer {
+/* Choose your preferred color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position:relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: Rockwell;
+  font-size: 0.9rem;
+}
+
+
+    </style>
+</head>
+<body>
+
+  <div class="body">
+    <div class="box" id="box">
+    <h3 id="timer"></h3>
+    <h1>Digital voting system</h1>
+    <form action="/confirm" method="post">
+      <% for(let i=0;i<can.length;i++) {%>
+        <div class="profile-container">
+            <img src="/images/politician.jpg" class="profile-photo"/>
+            <div>
+                <h3 class="profile-name"><%= can[i].name %></h3>
+                <p style="padding-left: 10px;">Number : <%= can[i].id %></p>
+            </div>
+            <button name="id" value=<%= can[i].id %> class="button-34">VOTE</button>
+        </div>
+        <% } %>
+      </form>
+    </div>
+    </div>
+  <footer class="footer">
+  <p>&copy; 2025 My College Digivote | All Rights Reserved</p>
+</footer>
+    <script>
+      var countdown = new Date("june 16,2025 20:50:00").getTime();
+      var x = setInterval(function(){
+        var now = new Date().getTime();
+        var d = countdown - now;
+        var h = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+        var m = Math.floor((d%(1000*60*60))/(1000*60));
+        var s = Math.floor((d%(1000*60))/(1000));
+      
+        if(d<0){
+          clearInterval(x);
+          var result = "<form action='/result' method='post'><h1 style='padding:30px 20px 10px 30px;'> Election timeout❗</h1><button type='submit' name='result' value='yes' class='button-34' style='margin-bottom:20px'>View result</button></form>"
+          document.getElementById("box").innerHTML = result;
+          document.getElementById("box").style = "background-color: rgba(255, 255, 255, 0.7);"
+        }
+        else{
+          document.getElementById("timer").innerHTML = h + ":" + m + ":" + s + " Left";
+        }
+      })
+    </script>
+</body>
+</html>

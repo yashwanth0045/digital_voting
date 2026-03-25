@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Voting App - Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(/images/back.jpg);
+      background-size: cover;
+      background-repeat:repeat;
+      background-position: center;
+    }
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow:0 1px 5px 1px rgba(0, 0, 0, 0.15); 
+      border-radius: 8px;
+    }
+    .body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-top: 100px;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+      width: 75%;
+      /* max-width: 400px; */
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #2575fc;
+      outline: none;
+    }
+    .button-34 {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 110px;
+  word-break: break-word;
+  border: 0;
+}
+
+    .btn-login {
+      width: 100%;
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background: #1a5ed6;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #5833cc;
+    }
+    h2{
+      text-shadow: .1em .1em 0 hsl(200 50% 30%);
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+  <% if(locals.login) {%>
+  <div class="login-container" style="max-width: 400px;">
+    <h2>Login to Vote</h2>
+    <form action="/vote" method="POST">
+      <div class="form-group">
+        <label for="voterID" style="color:#5833cc;font-size: larger;">Voter ID</label>
+        <input type="text" id="voterID" name="voterID" required />
+      </div>
+      <div class="form-group">
+        <label for="password" style="color:#5833cc;font-size: larger;">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit" class="button-34">Login</button>
+    </form>
+    <% if(locals.message) {%>
+      <div style="color: red;text-align: center;"><h5><%= message %> ❗</h5></div>
+    <% } %>
+    <div class="footer-text">
+      a product by SPADY groups
+    </div>
+  </div>
+  <% } else { %>
+    <div class="login-container">
+      <h2>Register to Vote</h2>
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <div style="display: flex;gap: 30px;">
+          <label for="voterID">Voter ID</label>
+          <input type="text" id="voterID1" name="voterID1" required />
+          <label for="voterID">Aadhar number</label>
+          <input type="text" id="voterID1" name="voterID1" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="voterID">E-mail</label>
+          <input type="text" id="voterID2" name="voterID2" required />
+        </div>
+        <div class="form-group">
+          <div style="display: flex;gap: 60px;">
+            <div>
+          <label for="password">Modile number</label>
+          <input type="password" id="password" name="password" required />
+          </div>
+          <div>
+          <label for="password">Date of birth</label>
+          <input type="password" id="password" name="password" required />
+          </div>
+          <div>
+          <label for="password">Constituency</label>
+          <input type="password" id="password" name="password" required />
+          </div>
+          </div>
+        </div>
+        <button type="submit" class="btn-login">Register</button>
+      </form>
+      <p>NOTE : After Submitting you will get a message from E-gov , only after then you can login with your credentials to vote</p>
+      <div class="footer-text">
+        a product by SPADY groups
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <footer class="footer">
+  <p>&copy; 2025 My College Digivote | All Rights Reserved</p>
+</footer>
+</body>
+</html>

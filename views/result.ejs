@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+    <style>
+              * {
+      box-sizing: border-box;
+    }
+    body{
+      background-image: url(/images/back.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+      .header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow:0 1px 5px 1px rgba(0, 0, 0, 0.15); 
+      border-radius: 8px;
+    }
+
+    .body {
+      margin: 0;
+      font-family: Copperplate Gothic;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      margin-top: 100px;
+      background-color: rgba(255, 255, 255, 0.7);
+
+            box-shadow: #030000 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+img{
+  border-radius: 150px;
+  height: 200px;
+}
+
+    </style>
+</head>
+<body>
+
+  <div class="body">
+    <div class="login-container">
+        <h3>Congratulation to the winner!</h3>
+        <img src="/images/politician.jpg"/>
+        <h2><%= win.name %></h2>
+        <h4>Votes : <%= win.votes %></h4>
+    </div>
+    </div>
+        <footer class="footer">
+  <p>&copy; 2025 My College Digivote | All Rights Reserved</p>
+</footer>
+</body>
+</html>

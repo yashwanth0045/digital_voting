@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital voting home</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+      background-image: url(/images/back.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #fdffff;
+      font-family: Copperplate Gothic Light;
+    }
+    .body {
+      /* background-image: url("/images/mobile.jpg"); */
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background: linear-gradient(to bottom, #0D47A1, #303F9F); #2575fc*/
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+    .i{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
+      width: 100%;
+      border-radius: 50%;
+    }
+    .login-container {
+      padding: 2.5rem 2rem;
+      /* border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); */
+      width: 100%;
+      max-width: 400px;
+    }
+    .container{
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    
+/* CSS */
+.button-34 {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 110px;
+  word-break: break-word;
+  border: 0;
+}
+    .btn-login {
+      
+      width: 150px;
+      background: #f53992;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      padding-bottom: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .button-34:hover {
+      background: #1a5ed6;
+    }
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow:0 1px 5px 10px rgba(0, 0, 0, 0.15); 
+      border-radius: 8px;
+    }
+    .footer {
+/* Choose your preferred color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position:relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: Rockwell;
+  font-size: 0.9rem;
+}
+
+    </style>
+</head>
+<body>
+  <div class="body">
+  <div class="container">
+    <h1>Welcome!</h1>
+    <h1 style="font-family: Rockwell;">Digital Voting System</h1>
+    <div style="padding-bottom: 10px;">
+      <form action="/loginpage" method="get">
+          <button type="submit" class="button-34">Vote</button>
+      </form>
+    </div>
+    <div>
+      <form action="/registerpage" method="get">
+        <button type="submit" class="button-34">Register</button>
+      </form>
+    </div>
+  </div class="i">
+    <div class="login-container">
+    </div>
+    </div>
+    <footer class="footer">
+  <p>&copy; 2025 My College Digivote | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
